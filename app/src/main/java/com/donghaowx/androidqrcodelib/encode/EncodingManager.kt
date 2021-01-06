@@ -50,9 +50,9 @@ class EncodingManager {
         @Throws(WriterException::class)
         fun createQRCodeWithLogo(str: String, size: Int, codeColor: Int, mBitmap: Bitmap): Bitmap {
             val halfSize = size / 10
-            val hints = Hashtable<EncodeHintType, String>()
+            val hints = Hashtable<EncodeHintType, Any>()
             hints[EncodeHintType.CHARACTER_SET] = UTF_8
-            hints[EncodeHintType.ERROR_CORRECTION] = ErrorCorrectionLevel.H.toString()
+            hints[EncodeHintType.ERROR_CORRECTION] = ErrorCorrectionLevel.H
             val bitMatrix = QRCodeWriter().encode(str, BarcodeFormat.QR_CODE, size, size, hints)
             val width = bitMatrix.width
             val height = bitMatrix.height
